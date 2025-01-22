@@ -1,0 +1,40 @@
+.devices-repair__item {
+  min-width: 240px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+@media (min-width: 768px) {
+  .devices-repair__item {
+    min-width: 224px;
+  }
+}
+@media (min-width: 1120px) {
+  .devices-repair__item {
+    min-width: 240px;
+  }
+}
+.devices-repair__link {
+  display: flex;
+  justify-content: space-between;
+  height: 160px;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  transition: all 0.1s ease-in-out;
+}
+.devices-repair__link img {
+  max-height: 40px;
+}
+.devices-repair__description {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+}
+
+@media (min-width: 768px) {
+  .swiper-pagination {
+    margin: 0;
+  }
+}

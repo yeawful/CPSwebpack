@@ -1,0 +1,43 @@
+.devices-repair {
+  &__item {
+    min-width: 240px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-sizing: border-box;
+
+    @media (min-width: 768px) {
+      min-width: 224px;
+    }
+
+    @media (min-width: 1120px) {
+      min-width: 240px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    height: 160px;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
+    transition: all 0.1s ease-in-out;
+
+    img {
+      max-height: 40px;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+  }
+}
+
+@media (min-width: 768px) {
+  .swiper-pagination {
+    margin: 0;
+  }
+}
