@@ -23,10 +23,12 @@ if (list && expandButton && expandButtonText) {
 }
 
 // Поиск списка, кнопки раскрытия/скрытия и текста кнопки для section
-const sectionList = document.querySelector('.section__list')
-const sectionExpandButton = document.querySelector('.section__expand-button')
+const sectionList = document.querySelector('.devices-repair__list')
+const sectionExpandButton = document.querySelector(
+  '.devices-repair__expand-button'
+)
 const sectionExpandButtonText = document.querySelector(
-  '.section__expand-description'
+  '.devices-repair__expand-description'
 )
 
 // Проверка, что все элементы существуют
@@ -34,12 +36,14 @@ if (sectionList && sectionExpandButton && sectionExpandButtonText) {
   // Добавление обработчика клика на кнопку
   sectionExpandButton.addEventListener('click', function () {
     // Переключение класса для раскрытия/скрытия списка
-    sectionList.classList.toggle('section__list--expanded')
+    sectionList.classList.toggle('devices-repair__list--expanded')
     // Переключение класса для поворота кнопки
-    sectionExpandButton.classList.toggle('section__expand-button--rotated')
+    sectionExpandButton.classList.toggle(
+      'devices-repair__expand-button--rotated'
+    )
     // Изменение текста кнопки в зависимости от состояния списка
     sectionExpandButtonText.textContent = sectionList.classList.contains(
-      'section__list--expanded'
+      'devices-repair__list--expanded'
     )
       ? 'Скрыть'
       : 'Показать все'

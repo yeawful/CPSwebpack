@@ -2,7 +2,9 @@ html {
   font-size: 14px;
   line-height: 18px;
   color: #1b1c21;
-  font-family: TT Lakes, sans-serif;
+  font-family:
+    TT Lakes,
+    sans-serif;
   box-sizing: border-box;
 }
 * {
@@ -69,6 +71,7 @@ li {
 textarea {
   resize: none;
 }
+
 .right-container {
   display: flex;
   flex-direction: column;

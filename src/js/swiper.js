@@ -1,30 +1,38 @@
+// Создание медиа-запроса для проверки ширины экрана (максимум 767px)
 const mediaQuery = window.matchMedia('(max-width: 767px)')
-let swiperInstances = {}
 
-function initSwiper(
-  selector,
-  containerClass,
-  wrapperClass,
-  slideClass,
-  paginationClass
-) {
-  if (mediaQuery.matches && !swiperInstances[selector]) {
-    const swiperContainer = document.querySelector(containerClass)
-    const swiperWrapper = document.querySelector(wrapperClass)
-    const swiperSlides = document.querySelectorAll(slideClass)
-    const swiperPagination = document.querySelector(paginationClass)
+// Объект для хранения экземпляров Swiper
+const swiperInstances = {}
 
+// Функция для инициализации Swiper
+function initSwiper(blockClass) {
+  // Проверка, если ширина экрана меньше или равна 767px и Swiper еще не инициализирован
+  if (mediaQuery.matches && !swiperInstances[blockClass]) {
+    // Поиск контейнера, обертки, слайдов и пагинации
+    const swiperContainer = document.querySelector(`.${blockClass}__content`) // Ищем контейнер для Swiper
+    const swiperWrapper = document.querySelector(`.${blockClass}__list`) // Ищем обертку для слайдов
+    const swiperSlides = document.querySelectorAll(`.${blockClass}__item`) // Ищем все слайды внутри обертки
+    const swiperPagination = document.querySelector(
+      `.${blockClass} .swiper-pagination`
+    ) // Ищем элемент пагинации
+
+    // Проверка, что все необходимые элементы существуют
     if (swiperContainer && swiperWrapper && swiperSlides.length > 0) {
+      // Добавление классов Swiper к элементам
       swiperContainer.classList.add('swiper')
       swiperWrapper.classList.add('swiper-wrapper')
       swiperSlides.forEach((slide) => slide.classList.add('swiper-slide'))
 
-      swiperInstances[selector] = new Swiper(containerClass, {
+      // Инициализация Swiper
+      swiperInstances[blockClass] = new Swiper(`.${blockClass}__content`, {
+        // Настройка пагинации, если она существует
         pagination: swiperPagination
           ? {
-              el: swiperPagination,
-              type: 'bullets',
-              clickable: true,
+              el: swiperPagination, // Указываем элемент для пагинации
+              type: 'bullets', // Тип пагинации — точки
+              clickable: true, // Делаем точки кликабельными
+
+              // Функция для отображения буллетов (ограничение до 9)
               renderBullet: function (index, className) {
                 if (index < 9) {
                   return `<span class="${className}"></span>`
@@ -33,14 +41,15 @@ function initSwiper(
               }
             }
           : false,
-        simulateTouch: true,
-        grabCursor: true,
-        slideToClickedSlide: true,
-        spaceBetween: 16,
-        slidesOffsetAfter: 32,
-        slidesPerView: 1.2,
+        simulateTouch: true, // Включение симуляции касания
+        grabCursor: true, // Изменение курсора при наведении
+        slideToClickedSlide: true, // Переход к слайду по клику
+        spaceBetween: 16, // Расстояние между слайдами
+        slidesOffsetAfter: 32, // Отступ после последнего слайда
+        slidesPerView: 1.2, // Количество слайдов, видимых одновременно
         breakpoints: {
-          320: { slidesPerView: 1.3 },
+          // Настройка количества слайдов в зависимости от ширины экрана
+          320: { slidesPerView: 1.2 },
           480: { slidesPerView: 1.6 },
           560: { slidesPerView: 1.8 },
           640: { slidesPerView: 2.0 },
@@ -48,59 +57,46 @@ function initSwiper(
         }
       })
 
+      // Скрытие пагинации, если ширина экрана больше 767px
       if (swiperPagination) {
         swiperPagination.style.display = mediaQuery.matches ? 'block' : 'none'
       }
     }
-  } else if (!mediaQuery.matches && swiperInstances[selector]) {
-    // Уничтожаем Swiper
-    swiperInstances[selector].destroy(true, true)
-    swiperInstances[selector] = null
+  } else if (!mediaQuery.matches && swiperInstances[blockClass]) {
+    // Уничтожение Swiper, если ширина экрана больше или равна 768px
+    swiperInstances[blockClass].destroy(true, true) // Уничтожаем Swiper, освобождая ресурсы
+    swiperInstances[blockClass] = null // Сбрасываем переменную swiperInstance
 
-    // Возвращаем элементы к исходному состоянию
-    const swiperContainer = document.querySelector(containerClass)
-    const swiperWrapper = document.querySelector(wrapperClass)
-    const swiperSlides = document.querySelectorAll(slideClass)
+    // Удаление классов Swiper с элементов
+    const swiperContainer = document.querySelector(`.${blockClass}__content`)
+    const swiperWrapper = document.querySelector(`.${blockClass}__list`)
+    const swiperSlides = document.querySelectorAll(`.${blockClass}__item`)
 
+    // Проверяем, что элементы существуют
     if (swiperContainer && swiperWrapper && swiperSlides.length > 0) {
       swiperContainer.classList.remove('swiper')
       swiperWrapper.classList.remove('swiper-wrapper')
-      swiperSlides.forEach((slide) => {
-        slide.classList.remove('swiper-slide')
-        slide.style.width = '' // Сбрасываем ширину
-        slide.style.flexShrink = '' // Сбрасываем flex-shrink
-        slide.style.marginRight = '' // Сбрасываем margin-right
-      })
+      swiperSlides.forEach((slide) => slide.classList.remove('swiper-slide'))
     }
 
-    // Скрываем пагинацию
-    const swiperPagination = document.querySelector(paginationClass)
+    // Скрытие пагинации, если ширина экрана больше 767px
+    const swiperPagination = document.querySelector(
+      `.${blockClass} .swiper-pagination`
+    )
     if (swiperPagination) {
       swiperPagination.style.display = 'none'
     }
   }
 }
 
-function initSwipers() {
-  initSwiper(
-    'brands-repair',
-    '.brands-repair__content',
-    '.brands-repair__list',
-    '.brands-repair__item',
-    '.brands-repair .swiper-pagination'
-  )
+// Инициализация Swiper для всех блоков при загрузке страницы
+initSwiper('brands-repair')
+initSwiper('devices-repair')
+initSwiper('prices') // Добавляем инициализацию для prices-container
 
-  initSwiper(
-    'devices-repair',
-    '.devices-repair .section__content',
-    '.devices-repair .section__list',
-    '.devices-repair .devices-repair__item',
-    '.devices-repair .swiper-pagination'
-  )
-}
-
-// Инициализация Swiper при загрузке страницы
-initSwipers()
-
-// Переинициализация Swiper при изменении размера окна
-mediaQuery.addEventListener('change', initSwipers)
+// Добавление обработчика изменения размера окна для переинициализации Swiper
+mediaQuery.addEventListener('change', () => {
+  initSwiper('brands-repair')
+  initSwiper('devices-repair')
+  initSwiper('prices') // Добавляем переинициализацию для prices-container
+})

@@ -16,13 +16,13 @@ html {
   left: 0;
   width: 320px;
   height: 100vh;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   padding: 24px;
   background-color: #fff;
-  font-size: 16px;
-  box-shadow: 16px 0 52px 0 rgba(14, 24, 80, 0.2);
+  font-size: 16px; /* 
+  box-shadow: 16px 0 52px 0 rgba(14, 24, 80, 0.2); */
   overflow-y: auto;
 
   &__header {
@@ -125,5 +125,25 @@ html {
     &:hover {
       color: #7e7e82;
     }
+  }
+}
+
+@media (min-width: 1120px) {
+  .menu {
+    display: flex;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    background-color: #ffffff;
+  }
+
+  .menu-links__img1 {
+    display: none;
+  }
+}
+
+@media (min-width: 1441px) {
+  .menu {
+    left: calc(0px + ((100vw - 1440px) / 2));
   }
 }

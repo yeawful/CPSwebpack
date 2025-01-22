@@ -189,6 +189,7 @@ button {
 
     &__item {
       width: 240px;
+      width: calc(25% - 24px);
     }
 
     &__expand-button {
@@ -213,14 +214,6 @@ button {
 
     &__expand-button {
       margin: 24px 0 34px 32px;
-    }
-  }
-}
-
-@media (min-width: 1120px) {
-  .brands-repair {
-    &__item {
-      width: calc(25% - 24px);
     }
   }
 }
