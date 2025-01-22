@@ -1,13 +1,13 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2022": true,
+    "node": true
   },
   "extends": [
     "eslint:recommended",
     "plugin:prettier/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings"
+    "plugin:import/recommended"
   ],
   "ignorePatterns": ["node_modules", "dist", "build"],
   "parserOptions": {
@@ -16,26 +16,22 @@
   },
   "plugins": ["prettier", "import"],
   "rules": {
-    "import/no-unresolved": [2, { "caseSensitive": false }],
+    "import/no-unresolved": "off",
     "import/order": [
-      2,
+      "error",
       {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
-        "newlines-between": "always"
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
       }
     ],
-    "indent": ["error", 2],
-    "linebreak-style": [0, "windows"],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "prettier/prettier": "error",
-    "quotes": ["error", "single"],
-    "semi": ["error", "never"]
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "semi": ["error", "never"],
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "no-console": "warn",
+    "arrow-parens": ["error", "always"]
   },
   "settings": {
     "import/resolver": {

@@ -1,4 +1,12 @@
 @import './fonts.scss';
+@import './reset.scss';
 @import './blocks/swiper.scss';
-@import './blocks/start.scss';
-@import './blocks/burger.scss';
+
+// Теме надо будет определить сонстанты для цветов и использовать их в своем приложении
+// К примеру
+
+// VARIABLES
+$main-color: tomato;
+
+// переменные цветов должны дежать в папке variables
+// Стили для разных частей должны быть разбиты по блокам
