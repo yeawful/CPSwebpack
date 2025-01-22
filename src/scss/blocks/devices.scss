@@ -16,16 +16,19 @@
 
   &__link {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     height: 160px;
-    align-items: center;
     padding: 15px;
     border: 1px solid #eaeaea;
     border-radius: 6px;
     transition: all 0.1s ease-in-out;
 
+    &:hover {
+      box-shadow: inset 0 0 5px 1px rgb(65, 246, 215);
+    }
     img {
-      max-height: 40px;
+      align-self: flex-end;
     }
   }
 

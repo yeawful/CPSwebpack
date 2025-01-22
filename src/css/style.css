@@ -1,0 +1,736 @@
+@charset "UTF-8";
+/***
+    The new CSS reset - version 1.11.2 (last updated 15.11.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+/* Этот блок кода сбрасывает все стили для всех элементов, кроме указанных (html, iframe, canvas, img, svg, video, audio и их дочерних элементов). Свойство all: unset; удаляет все стили, кроме display, которое возвращается к значению по умолчанию (revert). */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Этот блок задает значение border-box для свойства box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Этот блок предотвращает изменение размера шрифта в мобильном Safari при переходе в альбомный режим */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Этот блок возвращает курсор к значению по умолчанию для ссылок (a) и кнопок (button) */
+a,
+button {
+  cursor: revert;
+}
+
+/* Этот блок удаляет маркеры списков (пункты и нумерацию) для элементов ol, ul, menu и summary */
+ol,
+ul,
+menu,
+summary {
+  list-style: none;
+}
+
+/* Этот блок ограничивает размер изображений, чтобы они не превышали размеры их контейнера */
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+
+/* Этот блок удаляет промежутки между ячейками в таблицах. */
+table {
+  border-collapse: collapse;
+}
+
+/* Этот блок решает проблему в Safari, когда user-select: none на элементе <body> мешает работе текстовых полей ввода */
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+
+/* Этот блок возвращает свойство white-space к значению по умолчанию для элементов textarea в Safari */
+textarea {
+  white-space: revert;
+}
+
+/* Этот блок позволяет стилизовать элемент meter, возвращая свойство appearance к значению по умолчанию */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* Этот блок возвращает все стили к значению по умолчанию для элемента pre и задает box-sizing: border-box. */
+:where(pre) {
+  all: revert;
+  box-sizing: border-box;
+}
+
+/* Этот блок сбрасывает цвет текста для псевдоэлемента ::placeholder*/
+::placeholder {
+  color: unset;
+}
+
+/* Этот блок скрывает элементы с атрибутом hidden */
+:where([hidden]) {
+  display: none;
+}
+
+/* Этот блок исправляет ошибку в браузерах на основе Chromium и Safari для элементов с атрибутом contenteditable */
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* Этот блок возвращает возможность перетаскивания для элементов с атрибутом draggable="true" в Chromium и Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+/* Этот блок возвращает все стили к значению по умолчанию для модальных диалогов и задает box-sizing: border-box */
+:where(dialog:modal) {
+  all: revert;
+  box-sizing: border-box;
+}
+
+/* Этот блок удаляет стили маркера для элементов details в WebKit-браузерах */
+::-webkit-details-marker {
+  display: none;
+}
+
+@font-face {
+  font-family: "TT Lakes";
+  src: url("../fonts/TTLakes-Regular.eot");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TT Lakes";
+  src: url("../fonts/TTLakes-Medium.eot");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TT Lakes";
+  src: url("../fonts/TTLakes-Bold.eot");
+  font-weight: bold;
+  font-style: normal;
+}
+html {
+  font-size: 14px;
+  line-height: 18px;
+  color: #1b1c21;
+  font-family: TT Lakes, sans-serif;
+  box-sizing: border-box;
+}
+html, html::before, html::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+a,
+button {
+  text-decoration: none;
+  background-color: inherit;
+  color: inherit;
+  border: none;
+}
+a:hover,
+button:hover {
+  cursor: pointer;
+}
+
+.brands-repair__title {
+  padding: 16px 16px 16px;
+  border-top: 1px solid #d9fff5;
+  color: #7e7e82;
+  background: linear-gradient(to right, #f8f8f8 0%, #ffffff 100%);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.brands-repair__list {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 16px;
+  list-style: none;
+}
+.brands-repair__item {
+  min-width: 240px;
+  height: 72px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.brands-repair__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  transition: all 0.1s ease-in-out;
+}
+.brands-repair__link img {
+  max-height: 40px;
+}
+.brands-repair__expand-button {
+  display: none;
+}
+
+.swiper-pagination {
+  display: flex;
+  gap: 12px;
+  position: static;
+  margin: 0 auto 24px;
+  height: 40px;
+  flex-direction: row;
+}
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #dddddd;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background: #7e7e82;
+}
+
+.swiper__gradient {
+  position: fixed;
+  width: 24px;
+  height: 72px;
+  background: linear-gradient(270deg, #f8f8f8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
+  top: 96px;
+  right: 0;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .swiper__gradient {
+    display: none;
+  }
+  .brands-repair__title {
+    padding: 16px 24px 16px;
+  }
+  .brands-repair__list {
+    flex-wrap: wrap;
+    max-height: 160px;
+    overflow: hidden;
+    gap: 16px 24px;
+    margin: 24px 24px 0;
+    transition: all 0.2s ease-in-out;
+  }
+  .brands-repair__list--expanded {
+    max-height: 540px;
+    transition: all 0.2s ease-in-out;
+  }
+  .brands-repair__item {
+    min-width: 224px;
+  }
+  .brands-repair__expand-button {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0 34px 32px;
+  }
+  .brands-repair__expand-button--rotated img {
+    transform: rotate(180deg);
+    transition: all 0.15s ease-in-out;
+  }
+  .brands-repair__expand-button img {
+    transition: all 0.15s ease-in-out;
+  }
+  .brands-repair__expand-description {
+    font-family: TT Lakes, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    text-align: left;
+  }
+}
+@media (min-width: 1120px) {
+  .brands-container {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  .brands-repair__title {
+    padding: 16px 32px 16px;
+  }
+  .brands-repair__list {
+    column-gap: 32px;
+    margin: 24px 32px 0;
+  }
+  .brands-repair__item {
+    width: 240px;
+  }
+  .brands-repair__expand-button {
+    margin: 24px 0 34px 40px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1120px) {
+  .brands-repair__list {
+    justify-content: space-between;
+    margin: 16px 24px;
+  }
+  .brands-repair__item {
+    width: calc(33.333% - 16px);
+    min-width: auto;
+    flex-grow: 1;
+    transition: all 0.3s ease-in-out;
+  }
+  .brands-repair__expand-button {
+    margin: 24px 0 34px 32px;
+  }
+}
+@media (min-width: 1120px) {
+  .brands-repair__item {
+    width: calc(25% - 24px);
+  }
+}
+body {
+  font-family: "TT Lakes", sans-serif;
+  background-color: rgb(248, 248, 248);
+  color: rgb(27, 28, 33);
+  font-size: 14px;
+  overflow-x: hidden;
+}
+
+html {
+  box-sizing: border-box;
+  --container-width: calc(1056px + var(--container-padding) * 2);
+  --container-padding: 32px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.header__about {
+  padding-top: 42px;
+}
+
+.container {
+  max-width: var(--container-width);
+  padding: 0 var(--container-padding);
+  margin: 0 auto;
+}
+
+.nav {
+  position: relative;
+}
+.nav__left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav__right {
+  display: flex;
+  align-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.burger-menu {
+  display: none;
+  align-items: center;
+  min-width: 40px;
+  height: 40px;
+  background-color: rgb(255, 62, 121);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+}
+.burger-menu img {
+  width: 40px;
+  height: 40px;
+}
+
+.nav__logo {
+  display: none;
+}
+.nav__logo::before {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 32px;
+  border-radius: 2px;
+  background-color: #eaeaea;
+  margin-right: 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  padding-top: 42px;
+  padding-right: calc(50vw - var(--container-width) / 2 + 34px);
+  font-weight: 500;
+}
+.nav-links__item {
+  height: 40px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: 16px;
+}
+.nav-links__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  min-height: 40px;
+}
+.nav-links > :nth-child(-n+3) {
+  display: none;
+}
+
+.about__title {
+  position: relative;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  z-index: -1;
+}
+.about__title::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 40px;
+  top: -5px;
+  left: -32px;
+  border-radius: 3px;
+  background-color: rgb(65, 246, 215);
+}
+.about__feedback {
+  color: rgb(126, 126, 130);
+  padding: 15px 0 19px 24px;
+  font-size: 16px;
+}
+.about__row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 51px;
+  gap: 16px;
+}
+.about__image img {
+  min-width: 531px;
+  min-height: 308px;
+}
+.about__text {
+  padding-bottom: 14px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.4s ease-in;
+}
+.about__paragraph {
+  line-height: 22px;
+  max-width: 490px;
+}
+.about__paragraph + .about__paragraph {
+  padding-top: 26px;
+}
+.about__read-more {
+  display: flex;
+  padding: 0 0 0 6px;
+  gap: 16px;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.category-list {
+  display: flex;
+  gap: 10px;
+  overflow-y: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  margin-top: 32px;
+  font-size: 16px;
+}
+.category-list::-webkit-scrollbar {
+  display: none;
+}
+.category-list__item {
+  color: rgb(126, 126, 130);
+  padding: 8px 22px;
+  user-select: none;
+  transition: 0.2s;
+}
+.category-list__item--active {
+  outline: 2px rgb(184, 255, 236) solid;
+  border-radius: 6px;
+  outline-offset: -2px;
+  background-color: #fff;
+}
+
+@media screen and (width >= 1120px) {
+  .about__title {
+    margin-top: 45px;
+  }
+  .about__read-more {
+    margin-top: 13px;
+  }
+  .category-list {
+    margin-top: 20px;
+    gap: 0px;
+  }
+}
+@media screen and (max-width: 1119px) {
+  html {
+    --container-padding: 24px;
+  }
+  .nav-links {
+    gap: 20px;
+    padding: 0;
+  }
+  .nav-links > :nth-child(-n+3) {
+    display: block;
+  }
+  .nav-links > :nth-last-child(2) {
+    position: relative;
+    margin-left: 20px;
+  }
+  .nav-links > :nth-last-child(2)::before {
+    content: "";
+    position: absolute;
+    margin-top: 4px;
+    top: 0;
+    left: -20px;
+    width: 2px;
+    height: 32px;
+    border-radius: 2px;
+    margin-right: 20px;
+    background-color: #eaeaea;
+  }
+  .nav-links__item {
+    display: inline-block;
+  }
+  .nav-links__item span {
+    display: none;
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 18px var(--container-padding);
+  }
+  .nav__right {
+    position: inherit;
+    display: block;
+  }
+  .burger-menu {
+    display: flex;
+  }
+  .nav__logo {
+    display: flex;
+    align-items: center;
+  }
+  .nav__logo img {
+    min-width: 97px;
+    min-height: 51px;
+  }
+  .header__about {
+    padding-top: 0;
+  }
+  .about__title {
+    margin-top: 42px;
+  }
+  .about__title::before {
+    left: -24px;
+    top: -5px;
+  }
+  .about__row {
+    margin-top: 32px;
+  }
+  .about__feedback {
+    display: none;
+  }
+  .about__text {
+    max-height: 160px;
+  }
+  .about__image img {
+    min-width: 360px;
+    min-height: 208px;
+  }
+  .about__read-more {
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 767px) {
+  html {
+    --container-padding: 16px;
+  }
+  .nav-links {
+    gap: 16px;
+  }
+  .nav-links > :nth-child(-n+3) {
+    display: none;
+  }
+  .nav__logo::before {
+    display: none;
+  }
+  .nav__left {
+    gap: 16px;
+  }
+  .about__image img {
+    min-width: 320px;
+    min-height: 176px;
+  }
+  .about__row {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+  }
+  .about__text {
+    max-height: 90px;
+  }
+  .about__title::before {
+    left: -16px;
+    top: -5px;
+  }
+  .category-list {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .category-list {
+    font-size: 14px;
+  }
+  .about__read-more {
+    margin-top: 16px;
+  }
+}
+body {
+  font-family: "TT Lakes", sans-serif;
+  background-color: rgb(248, 248, 248);
+  color: #1b1c21;
+  font-size: 14px;
+  overflow-x: hidden;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  background-color: #fff;
+  font-size: 16px;
+  box-shadow: 16px 0 52px 0 rgba(14, 24, 80, 0.2);
+  overflow-y: auto;
+}
+.menu__header {
+  display: flex;
+  justify-content: space-between;
+}
+.menu__header-left {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+.menu__header-right {
+  display: flex;
+  align-items: center;
+}
+.menu__btn {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu__links {
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 50px;
+}
+.menu__link {
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1b1c21;
+}
+.menu__link--active {
+  color: #1b1c21;
+}
+.menu__link--active::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -24px;
+  border-radius: 0 5px 5px 0;
+  height: 32px;
+  width: 4px;
+  background-color: #41f6d7;
+}
+.menu__link:hover {
+  color: #7e7e82;
+}
+.menu__bottom {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+}
+.menu__btns {
+  display: flex;
+  gap: 16px;
+}
+.menu__mail {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.menu__phone {
+  margin-top: 12px;
+  font-weight: 700;
+  font-size: 24px;
+}
+.menu__lang-list {
+  margin-top: 40px;
+  display: flex;
+  gap: 7px;
+  color: #1b1c21;
+  cursor: pointer;
+  font-weight: 500;
+}
+.menu__lang-item {
+  color: #1b1c21;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.menu__lang-item:hover {
+  color: #7e7e82;
+}
