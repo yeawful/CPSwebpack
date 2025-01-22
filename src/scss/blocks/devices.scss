@@ -1,16 +1,50 @@
 .devices-repair {
+  &__list {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 16px;
+    list-style: none;
+
+    @media (min-width: 768px) {
+      flex-wrap: wrap;
+      max-height: 160px;
+      overflow: hidden;
+      gap: 16px 24px;
+      margin: 24px 24px 0;
+      transition: all 0.2s ease-in-out;
+      width: 100%; // Добавлено, чтобы контейнер занимал всю ширину
+
+      &--expanded {
+        max-height: 540px;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    @media (min-width: 1120px) {
+      column-gap: 32px;
+      margin: 24px 32px 0;
+    }
+  }
+
   &__item {
-    min-width: 240px;
+    max-width: 240px;
+    flex-shrink: 0;
     background-color: #ffffff;
     border-radius: 6px;
     box-sizing: border-box;
 
     @media (min-width: 768px) {
       min-width: 224px;
+      width: calc((100% - 48px) / 3); // 3 колонки с учетом отступов
+      min-width: auto;
+      flex-grow: 1;
+      transition: all 0.3s ease-in-out;
     }
 
     @media (min-width: 1120px) {
       min-width: 240px;
+      width: calc((100% - 72px) / 4); // 4 колонки с учетом отступов
     }
   }
 
@@ -24,9 +58,6 @@
     border-radius: 6px;
     transition: all 0.1s ease-in-out;
 
-    &:hover {
-      box-shadow: inset 0 0 5px 1px rgb(65, 246, 215);
-    }
     img {
       align-self: flex-end;
     }
@@ -37,10 +68,46 @@
     line-height: 24px;
     letter-spacing: -0.2px;
   }
+
+  &__expand-button {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 24px 0 34px 32px;
+
+      &--rotated img {
+        transform: rotate(180deg);
+        transition: all 0.15s ease-in-out;
+      }
+
+      img {
+        transition: all 0.15s ease-in-out;
+      }
+    }
+
+    @media (min-width: 1120px) {
+      margin: 24px 0 34px 40px;
+    }
+  }
 }
 
 @media (min-width: 768px) {
   .swiper-pagination {
     margin: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1119px) {
+  .devices-repair__item {
+    width: calc(33.333% - 16px);
+  }
+}
+
+@media (min-width: 1120px) {
+  .devices-repair__item {
+    width: calc(25% - 24px);
   }
 }
