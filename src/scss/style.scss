@@ -1,4 +1,14 @@
+@import './reset.scss';
 @import './fonts.scss';
 @import './blocks/swiper.scss';
 @import './blocks/start.scss';
 @import './blocks/burger.scss';
+
+// Тебе надо будет определить константы для цветов и использовать их в своем приложении. Все повторяющиеся
+// Значения надо вынести в константы
+// К примеру цвета, отступы и тд
+
+// VARIABLES
+$main-color: tomato;
+
+// переменные цветов должны держать в папке variables
