@@ -97,3 +97,65 @@ if (burgerMenuButton && menu && closeMenuButton) {
     }
   })
 }
+
+// Открытие и закрытие модального окна "call"
+const callModal = document.querySelector('.modal.call')
+const callModalButtons = document.querySelectorAll('.menu__btn-call') // Все кнопки "call"
+const closeCallModalButton = callModal.querySelector('.modal__icon')
+
+if (callModal && callModalButtons.length > 0 && closeCallModalButton) {
+  callModalButtons.forEach((button) => {
+    button.addEventListener('click', function () {
+      callModal.classList.add('modal--shown')
+    })
+  })
+
+  closeCallModalButton.addEventListener('click', function () {
+    callModal.classList.remove('modal--shown')
+  })
+
+  // Закрытие модального окна при клике вне его области
+  document.addEventListener('click', function (event) {
+    if (
+      !callModal.contains(event.target) &&
+      !Array.from(callModalButtons).some((button) =>
+        button.contains(event.target)
+      )
+    ) {
+      callModal.classList.remove('modal--shown')
+    }
+  })
+}
+
+// Открытие и закрытие модального окна "feedback"
+const feedbackModal = document.querySelector('.modal.feedback')
+const feedbackModalButtons = document.querySelectorAll('.menu__btn-chat') // Все кнопки "chat"
+const closeFeedbackModalButton = feedbackModal.querySelector('.modal__icon')
+
+if (
+  feedbackModal &&
+  feedbackModalButtons.length > 0 &&
+  closeFeedbackModalButton
+) {
+  feedbackModalButtons.forEach((button) => {
+    button.addEventListener('click', function () {
+      feedbackModal.classList.add('modal--shown')
+    })
+  })
+
+  closeFeedbackModalButton.addEventListener('click', function () {
+    feedbackModal.classList.remove('modal--shown')
+  })
+
+  // Закрытие модального окна при клике вне его области
+  document.addEventListener('click', function (event) {
+    if (
+      !feedbackModal.contains(event.target) &&
+      !Array.from(feedbackModalButtons).some((button) =>
+        button.contains(event.target)
+      )
+    ) {
+      feedbackModal.classList.remove('modal--shown')
+    }
+  })
+}

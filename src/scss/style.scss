@@ -1,5 +1,6 @@
 @use './reset.scss';
 @use './fonts.scss';
+@use './variables.scss';
 @use './blocks/common.scss';
 @use './blocks/nav.scss';
 @use './blocks/about.scss';
@@ -10,3 +11,4 @@
 @use './blocks/menu.scss';
 @use './blocks/navigation.scss';
 @use './blocks/containers.scss';
+@use './blocks/modals.scss';

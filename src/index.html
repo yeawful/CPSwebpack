@@ -25,14 +25,14 @@
           <div class="nav__right">
             <ul class="nav-links">
               <li>
-                <a class="nav-links__item" href="#">
+                <a class="nav-links__item menu__btn-call" href="#">
                   <div class="nav-links__div">
                     <img class="nav-links__img" src="./img/icons/call.svg" alt="call" />
                   </div>
                 </a>
               </li>
               <li>
-                <a class="nav-links__item" href="#">
+                <a class="nav-links__item menu__btn-chat" href="#">
                   <div class="nav-links__div">
                     <img class="nav-links__img" src="./img/icons/chat.svg" alt="chat" />
                   </div>
@@ -435,10 +435,10 @@
 
           <div class="menu__bottom">
             <div class="menu__btns">
-              <button class="menu__btn">
+              <button class="menu__btn menu__btn-call">
                 <img class="menu__btn-img" src="./img/icons/call.svg" alt="call" />
               </button>
-              <button class="menu__btn">
+              <button class="menu__btn menu__btn-chat">
                 <img class="menu__btn-img" src="./img/icons/chat.svg" alt="chat" />
               </button>
               <button class="menu__btn">
@@ -453,6 +453,53 @@
               <li class="menu__lang-item">EN</li>
               <li class="menu__lang-item">CH</li>
             </ul>
+          </div>
+        </aside>
+
+        <aside class="modal feedback">
+          <div class="modal__content">
+            <button class="modal__icon icon">
+              <img src="./img/icons/close.svg" alt="Close" />
+            </button>
+            <h3 class="modal__title">Обратная связь</h3>
+            <form class="modal__form" action="#">
+              <input class="modal__input" type="text" placeholder="Имя" />
+              <input class="modal__input" type="tel" placeholder="Телефон" />
+              <input class="modal__input" type="email" placeholder="Электронная почта" />
+              <textarea class="modal__input" rows="5" placeholder="Сообщение"></textarea>
+              <p class="modal__agreement">
+                Нажимая “отправить”, вы даете согласие на&nbsp;<a class="modal__link"
+                  >обработку персональных данных</a
+                >
+                и соглашаетесь с нашей <a class="modal__link">политикой конфиденциальности</a>
+              </p>
+              <button class="modal__submit-button" type="submit">
+                <span class="modal__submit-text">Заказать</span>
+                <img src="./img/icons/arrow-white.svg" alt="Open" />
+              </button>
+            </form>
+          </div>
+        </aside>
+
+        <aside class="modal call">
+          <div class="modal__content">
+            <button class="modal__icon icon">
+              <img src="./img/icons/close.svg" alt="Close" />
+            </button>
+            <h3 class="modal__title">Заказать звонок</h3>
+            <form class="modal__form" action="#">
+              <input class="modal__input" type="tel" placeholder="Телефон" />
+              <p class="modal__agreement">
+                Нажимая “отправить”, вы даете согласие на&nbsp;<a class="modal__link"
+                  >обработку персональных данных</a
+                >
+                и соглашаетесь с нашей <a class="modal__link">политикой конфиденциальности</a>
+              </p>
+              <button class="modal__submit-button" type="submit">
+                <span class="modal__submit-text">Заказать</span>
+                <img src="./img/icons/arrow-white.svg" alt="Open" />
+              </button>
+            </form>
           </div>
         </aside>
       </div>
