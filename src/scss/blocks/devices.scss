@@ -1,9 +1,16 @@
-.brands-repair {
+// devices.scss
+@use './colors.scss' as colors;
+
+.devices {
   &__title {
     padding: 16px 16px 16px;
-    border-top: 1px solid #d9fff5;
-    color: #7e7e82;
-    background: linear-gradient(to right, #f8f8f8 0%, #ffffff 100%);
+    border-top: 1px solid colors.$color-light-blue;
+    color: colors.$color-gray;
+    background: linear-gradient(
+      to right,
+      colors.$color-background 0%,
+      colors.$color-white 100%
+    );
     font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.2px;
@@ -21,8 +28,8 @@
 
   &__item {
     min-width: 240px;
-    height: 72px;
-    background-color: #ffffff;
+    height: 160px;
+    background-color: colors.$color-white;
     border-radius: 6px;
     box-sizing: border-box;
   }
@@ -30,18 +37,21 @@
   &__link {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    min-height: 160px;
+    min-width: 240px;
     padding: 15px;
-    border: 1px solid #eaeaea;
+    border: 1px solid colors.$color-light-gray;
     border-radius: 6px;
     transition: all 0.1s ease-in-out;
 
     img {
       max-height: 40px;
+      align-self: flex-end;
     }
   }
 
-  &__expand-button {
+  &__expand-btn {
     display: none;
   }
 }
@@ -51,7 +61,7 @@
     display: none;
   }
 
-  .brands-repair {
+  .devices {
     &__title {
       padding: 16px 24px 16px;
     }
@@ -74,7 +84,7 @@
       min-width: 224px;
     }
 
-    &__expand-button {
+    &__expand-btn {
       display: flex;
       align-items: center;
       gap: 16px;
@@ -90,7 +100,7 @@
       }
     }
 
-    &__expand-description {
+    &__expand-text {
       font-family:
         TT Lakes,
         sans-serif;
@@ -104,12 +114,12 @@
 }
 
 @media (min-width: 1120px) {
-  .brands-container {
+  .devices-container {
     max-width: 1120px;
     margin: 0 auto;
   }
 
-  .brands-repair {
+  .devices {
     &__title {
       padding: 16px 32px 16px;
     }
@@ -124,14 +134,14 @@
       width: calc(25% - 24px);
     }
 
-    &__expand-button {
+    &__expand-btn {
       margin: 24px 0 34px 40px;
     }
   }
 }
 
 @media (min-width: 768px) and (max-width: 1440px) {
-  .brands-repair {
+  .devices {
     &__list {
       justify-content: space-between;
       margin: 16px 24px;
@@ -144,7 +154,7 @@
       transition: all 0.3s ease-in-out;
     }
 
-    &__expand-button {
+    &__expand-btn {
       margin: 24px 0 34px 32px;
     }
   }

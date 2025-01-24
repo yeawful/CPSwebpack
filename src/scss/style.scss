@@ -1,11 +1,11 @@
 @use './reset.scss';
 @use './fonts.scss';
-@use './variables.scss';
+@use './blocks/colors.scss';
 @use './blocks/common.scss';
 @use './blocks/nav.scss';
 @use './blocks/about.scss';
-@use './blocks/brands-repair.scss';
-@use './blocks/devices-repair.scss';
+@use './blocks/brands.scss';
+@use './blocks/devices.scss';
 @use './blocks/prices.scss';
 @use './blocks/footer.scss';
 @use './blocks/menu.scss';

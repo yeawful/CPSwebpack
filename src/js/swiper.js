@@ -69,7 +69,7 @@ function initSwiper(blockClass) {
   }
 }
 
-const blocks = ['brands-repair', 'devices-repair', 'prices']
+const blocks = ['brands', 'devices', 'prices']
 blocks.forEach((block) => {
   initSwiper(block)
 })

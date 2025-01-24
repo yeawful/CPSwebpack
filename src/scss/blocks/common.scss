@@ -1,7 +1,10 @@
+// common.scss
+@use './colors.scss' as colors;
+
 html {
   font-size: 14px;
   line-height: 18px;
-  color: #1b1c21;
+  color: colors.$color-black;
   font-family: 'TT Lakes', sans-serif;
   box-sizing: border-box;
 
@@ -15,7 +18,7 @@ html {
 }
 
 body {
-  background-color: #f8f8f8;
+  background-color: colors.$color-background;
 }
 
 a,
@@ -51,11 +54,11 @@ li {
   &-bullet {
     width: 12px;
     height: 12px;
-    background: #dddddd;
+    background: colors.$color-light-gray;
     opacity: 1;
 
     &-active {
-      background: #7e7e82;
+      background: colors.$color-gray;
     }
   }
 }

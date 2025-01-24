@@ -1,3 +1,5 @@
+@use './colors.scss' as colors;
+
 .modal {
   position: fixed;
   top: 0;
@@ -6,63 +8,73 @@
   height: 100vh;
   display: flex;
   justify-content: flex-end;
-  transition: all 0.2s ease-in-out;
+  transition:
+    right 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
 }
+
 .modal--shown {
   position: fixed;
-  z-index: 20;
+  z-index: 40; // Увеличено для корректного отображения
   top: 0;
   right: 0;
   width: 100%;
-  background-color: rgba($color: #f8f8f8, $alpha: 0.8);
+  background-color: rgba($color: colors.$color-background, $alpha: 0.8);
 }
+
 .modal__content {
   position: relative;
   padding: 24px 16px;
   width: 100vw;
   height: 100vh;
-  background-color: #ffffff;
+  background-color: colors.$color-white;
   overflow-y: auto;
 }
+
 .modal__title {
   margin: 40px 0 24px;
   font-size: 24px;
   line-height: 40px;
   letter-spacing: -0.6px;
+
   &::before {
     position: absolute;
     left: 0;
     display: block;
     height: 40px;
-    border-right: 4px solid #41f6d7;
+    border-right: 4px solid colors.$color-blue;
     border-radius: 0 4px 4px 0;
     content: '';
   }
 }
+
 .modal__form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
 .modal__input {
   width: 100%;
   min-height: 48px;
   border-radius: 8px;
-  border: 1px solid #eaeaea;
+  border: 1px solid colors.$color-light-gray;
   padding: 12px 16px;
-  font-family: TT Lakes;
+  font-family: 'TT Lakes', sans-serif; // Добавлен резервный шрифт
   font-size: 16px;
   line-height: 20px;
   letter-spacing: -0.2px;
 }
+
 .modal__agreement {
   line-height: 16px;
 }
+
 .modal__link {
-  color: #ff3e79;
+  color: colors.$color-pink;
 }
+
 .modal__submit-button {
-  grid-area: a;
   justify-self: flex-end;
   align-self: flex-end;
   display: flex;
@@ -72,13 +84,15 @@
   padding: 4px 12px;
   width: 120px;
   height: 32px;
-  color: #ffffff;
-  background-color: #ff3e79;
-  transition: all 0.3s;
+  color: colors.$color-white;
+  background-color: colors.$color-pink;
+  transition: background-color 0.3s;
+
   &:hover {
-    background-color: #da3868;
+    background-color: colors.$color-pink;
   }
 }
+
 .modal__submit-text {
   font-size: 12px;
   line-height: 24px;
@@ -92,12 +106,14 @@
     width: 440px;
     overflow-y: visible;
   }
-  .modal__icon {
+
+  .modal__btn {
     position: absolute;
     left: -60px;
     top: 48px;
     z-index: 30;
   }
+
   .modal__title {
     margin-top: 24px;
   }

@@ -4,7 +4,9 @@
     GitHub page: https://github.com/elad2412/the-new-css-reset
 ***/
 /* Этот блок кода сбрасывает все стили для всех элементов, кроме указанных (html, iframe, canvas, img, svg, video, audio и их дочерних элементов). Свойство all: unset; удаляет все стили, кроме display, которое возвращается к значению по умолчанию (revert). */
-*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+*:where(
+    :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
+  ) {
   all: unset;
   display: revert;
 }
@@ -82,7 +84,7 @@ meter {
 }
 
 /* Этот блок исправляет ошибку в браузерах на основе Chromium и Safari для элементов с атрибутом contenteditable */
-:where([contenteditable]:not([contenteditable=false])) {
+:where([contenteditable]:not([contenteditable='false'])) {
   -moz-user-modify: read-write;
   -webkit-user-modify: read-write;
   overflow-wrap: break-word;
@@ -91,7 +93,7 @@ meter {
 }
 
 /* Этот блок возвращает возможность перетаскивания для элементов с атрибутом draggable="true" в Chromium и Safari */
-:where([draggable=true]) {
+:where([draggable='true']) {
   -webkit-user-drag: element;
 }
 
@@ -107,20 +109,20 @@ meter {
 }
 
 @font-face {
-  font-family: "TT Lakes";
-  src: url("../fonts/TTLakes-Regular.eot");
+  font-family: 'TT Lakes';
+  src: url('../fonts/TTLakes-Regular.eot');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "TT Lakes";
-  src: url("../fonts/TTLakes-Medium.eot");
+  font-family: 'TT Lakes';
+  src: url('../fonts/TTLakes-Medium.eot');
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: "TT Lakes";
-  src: url("../fonts/TTLakes-Bold.eot");
+  font-family: 'TT Lakes';
+  src: url('../fonts/TTLakes-Bold.eot');
   font-weight: bold;
   font-style: normal;
 }
@@ -128,10 +130,14 @@ html {
   font-size: 14px;
   line-height: 18px;
   color: #1b1c21;
-  font-family: TT Lakes, sans-serif;
+  font-family:
+    TT Lakes,
+    sans-serif;
   box-sizing: border-box;
 }
-html, html::before, html::after {
+html,
+html::before,
+html::after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
@@ -153,7 +159,7 @@ button:hover {
   cursor: pointer;
 }
 
-.brands-repair__title {
+.brands__title {
   padding: 16px 16px 16px;
   border-top: 1px solid #d9fff5;
   color: #7e7e82;
@@ -164,21 +170,21 @@ button:hover {
   font-weight: normal;
   text-transform: uppercase;
 }
-.brands-repair__list {
+.brands__list {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   margin: 16px;
   list-style: none;
 }
-.brands-repair__item {
+.brands__item {
   min-width: 240px;
   height: 72px;
   background-color: #ffffff;
   border-radius: 6px;
   box-sizing: border-box;
 }
-.brands-repair__link {
+.brands__link {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -187,10 +193,10 @@ button:hover {
   border-radius: 6px;
   transition: all 0.1s ease-in-out;
 }
-.brands-repair__link img {
+.brands__link img {
   max-height: 40px;
 }
-.brands-repair__expand-button {
+.brands__expand-button {
   display: none;
 }
 
@@ -216,7 +222,11 @@ button:hover {
   position: fixed;
   width: 24px;
   height: 72px;
-  background: linear-gradient(270deg, #f8f8f8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
+  background: linear-gradient(
+    270deg,
+    #f8f8f8 16.84%,
+    rgba(248, 248, 248, 0.0001) 100%
+  );
   top: 96px;
   right: 0;
   z-index: 10;
@@ -226,10 +236,10 @@ button:hover {
   .swiper__gradient {
     display: none;
   }
-  .brands-repair__title {
+  .brands__title {
     padding: 16px 24px 16px;
   }
-  .brands-repair__list {
+  .brands__list {
     flex-wrap: wrap;
     max-height: 160px;
     overflow: hidden;
@@ -237,28 +247,30 @@ button:hover {
     margin: 24px 24px 0;
     transition: all 0.2s ease-in-out;
   }
-  .brands-repair__list--expanded {
+  .brands__list--expanded {
     max-height: 540px;
     transition: all 0.2s ease-in-out;
   }
-  .brands-repair__item {
+  .brands__item {
     min-width: 224px;
   }
-  .brands-repair__expand-button {
+  .brands__expand-button {
     display: flex;
     align-items: center;
     gap: 16px;
     margin: 24px 0 34px 32px;
   }
-  .brands-repair__expand-button--rotated img {
+  .brands__expand-button--rotated img {
     transform: rotate(180deg);
     transition: all 0.15s ease-in-out;
   }
-  .brands-repair__expand-button img {
+  .brands__expand-button img {
     transition: all 0.15s ease-in-out;
   }
-  .brands-repair__expand-description {
-    font-family: TT Lakes, sans-serif;
+  .brands__expand-description {
+    font-family:
+      TT Lakes,
+      sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -271,42 +283,42 @@ button:hover {
     max-width: 1120px;
     margin: 0 auto;
   }
-  .brands-repair__title {
+  .brands__title {
     padding: 16px 32px 16px;
   }
-  .brands-repair__list {
+  .brands__list {
     column-gap: 32px;
     margin: 24px 32px 0;
   }
-  .brands-repair__item {
+  .brands__item {
     width: 240px;
   }
-  .brands-repair__expand-button {
+  .brands__expand-button {
     margin: 24px 0 34px 40px;
   }
 }
 @media (min-width: 768px) and (max-width: 1120px) {
-  .brands-repair__list {
+  .brands__list {
     justify-content: space-between;
     margin: 16px 24px;
   }
-  .brands-repair__item {
+  .brands__item {
     width: calc(33.333% - 16px);
     min-width: auto;
     flex-grow: 1;
     transition: all 0.3s ease-in-out;
   }
-  .brands-repair__expand-button {
+  .brands__expand-button {
     margin: 24px 0 34px 32px;
   }
 }
 @media (min-width: 1120px) {
-  .brands-repair__item {
+  .brands__item {
     width: calc(25% - 24px);
   }
 }
 body {
-  font-family: "TT Lakes", sans-serif;
+  font-family: 'TT Lakes', sans-serif;
   background-color: rgb(248, 248, 248);
   color: rgb(27, 28, 33);
   font-size: 14px;
@@ -369,7 +381,7 @@ button {
   display: none;
 }
 .nav__logo::before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 2px;
   height: 32px;
@@ -392,14 +404,14 @@ button {
   align-items: center;
   font-size: 16px;
 }
-.nav-links__img {
+.nav-links__icon {
   display: flex;
   justify-content: center;
   align-items: center;
   min-width: 40px;
   min-height: 40px;
 }
-.nav-links > :nth-child(-n+3) {
+.nav-links > :nth-child(-n + 3) {
   display: none;
 }
 
@@ -411,7 +423,7 @@ button {
   z-index: -1;
 }
 .about__title::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 4px;
   height: 40px;
@@ -504,7 +516,7 @@ button {
     gap: 20px;
     padding: 0;
   }
-  .nav-links > :nth-child(-n+3) {
+  .nav-links > :nth-child(-n + 3) {
     display: block;
   }
   .nav-links > :nth-last-child(2) {
@@ -512,7 +524,7 @@ button {
     margin-left: 20px;
   }
   .nav-links > :nth-last-child(2)::before {
-    content: "";
+    content: '';
     position: absolute;
     margin-top: 4px;
     top: 0;
@@ -584,7 +596,7 @@ button {
   .nav-links {
     gap: 16px;
   }
-  .nav-links > :nth-child(-n+3) {
+  .nav-links > :nth-child(-n + 3) {
     display: none;
   }
   .nav__logo::before {
@@ -622,7 +634,7 @@ button {
   }
 }
 body {
-  font-family: "TT Lakes", sans-serif;
+  font-family: 'TT Lakes', sans-serif;
   background-color: rgb(248, 248, 248);
   color: #1b1c21;
   font-size: 14px;
@@ -686,7 +698,7 @@ html {
   color: #1b1c21;
 }
 .menu__link--active::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -6px;
   left: -24px;

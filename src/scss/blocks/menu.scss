@@ -1,3 +1,6 @@
+// menu.scss
+@use './colors.scss' as colors;
+
 .menu {
   position: fixed;
   top: 0;
@@ -8,7 +11,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 24px;
-  background-color: #fff;
+  background-color: colors.$color-white;
   font-size: 16px;
   overflow-y: auto;
   transition: left 0.3s ease;
@@ -18,13 +21,30 @@
     left: 0;
   }
 
-  &__btn1 {
-    display: block;
+  &__btn {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--close {
+      display: block;
+    }
+
+    &--search,
+    &--call,
+    &--chat,
+    &--profile {
+      display: flex;
+    }
   }
 
   @media (min-width: 1120px) {
     left: 0;
-    &__btn1 {
+
+    &__btn--close {
       display: none;
     }
   }
@@ -45,15 +65,6 @@
     }
   }
 
-  &__btn {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   &__links {
     font-weight: 500;
     display: flex;
@@ -66,10 +77,10 @@
     position: relative;
     font-size: 16px;
     font-weight: 500;
-    color: #1b1c21;
+    color: colors.$color-black;
 
     &--active {
-      color: #1b1c21;
+      color: colors.$color-black;
 
       &::before {
         content: '';
@@ -79,12 +90,12 @@
         border-radius: 0 5px 5px 0;
         height: 32px;
         width: 4px;
-        background-color: #41f6d7;
+        background-color: colors.$color-blue;
       }
     }
 
     &:hover {
-      color: #7e7e82;
+      color: colors.$color-gray;
     }
   }
 
@@ -115,19 +126,23 @@
     margin-top: 40px;
     display: flex;
     gap: 7px;
-    color: #1b1c21;
+    color: colors.$color-black;
     cursor: pointer;
     font-weight: 500;
   }
 
   &__lang-item {
-    color: #1b1c21;
+    color: colors.$color-black;
     cursor: pointer;
     font-weight: 500;
     transition: color 0.3s ease;
 
     &:hover {
-      color: #7e7e82;
+      color: colors.$color-gray;
+    }
+
+    &--active {
+      color: colors.$color-blue;
     }
   }
 }
@@ -138,8 +153,9 @@
     position: fixed;
     z-index: 10;
     left: 0;
-    background-color: #ffffff;
-    &__btn1 {
+    background-color: colors.$color-white;
+
+    &__btn--close {
       display: none;
     }
   }

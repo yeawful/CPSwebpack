@@ -1,5 +1,5 @@
 body {
-  font-family: "TT Lakes", sans-serif;
+  font-family: 'TT Lakes', sans-serif;
   background-color: rgb(248, 248, 248);
   color: rgb(27, 28, 33);
   font-size: 14px;
@@ -62,7 +62,7 @@ button {
   display: none;
 }
 .nav__logo::before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 2px;
   height: 32px;
@@ -85,14 +85,14 @@ button {
   align-items: center;
   font-size: 16px;
 }
-.nav-links__img {
+.nav-links__icon {
   display: flex;
   justify-content: center;
   align-items: center;
   min-width: 40px;
   min-height: 40px;
 }
-.nav-links > :nth-child(-n+3) {
+.nav-links > :nth-child(-n + 3) {
   display: none;
 }
 
@@ -104,7 +104,7 @@ button {
   z-index: -1;
 }
 .about__title::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 4px;
   height: 40px;
@@ -197,7 +197,7 @@ button {
     gap: 20px;
     padding: 0;
   }
-  .nav-links > :nth-child(-n+3) {
+  .nav-links > :nth-child(-n + 3) {
     display: block;
   }
   .nav-links > :nth-last-child(2) {
@@ -205,7 +205,7 @@ button {
     margin-left: 20px;
   }
   .nav-links > :nth-last-child(2)::before {
-    content: "";
+    content: '';
     position: absolute;
     margin-top: 4px;
     top: 0;
@@ -277,7 +277,7 @@ button {
   .nav-links {
     gap: 16px;
   }
-  .nav-links > :nth-child(-n+3) {
+  .nav-links > :nth-child(-n + 3) {
     display: none;
   }
   .nav__logo::before {

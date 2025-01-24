@@ -1,12 +1,15 @@
+// footer.scss
+@use './colors.scss' as colors;
+
 .footer {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  border-top: 1px solid #d9fff5;
+  border-top: 1px solid colors.$color-light-blue;
   padding: 15px 16px 20px;
-  &__paragraph {
+  &__text {
     text-align: center;
-    color: #7e7e82;
+    color: colors.$color-gray;
   }
 }
 
@@ -15,10 +18,10 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 31px 24px 24px;
-    &__paragraph:nth-child(1) {
+    &__text:nth-child(1) {
       text-align: left;
     }
-    &__paragraph:nth-child(3) {
+    &__text:nth-child(3) {
       text-align: right;
       width: 212px;
     }
@@ -28,7 +31,7 @@
 @media (min-width: 1120px) {
   .footer {
     padding: 31px 32px 24px;
-    &__paragraph:nth-child(3) {
+    &__text:nth-child(3) {
       width: 330px;
     }
   }

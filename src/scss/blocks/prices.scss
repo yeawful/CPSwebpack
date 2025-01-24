@@ -1,9 +1,16 @@
+// prices.scss
+@use './colors.scss' as colors;
+
 .prices {
   &__title {
     padding: 16px 16px 16px;
-    border-top: 1px solid #d9fff5;
-    color: #7e7e82;
-    background: linear-gradient(to right, #f8f8f8 0%, #ffffff 100%);
+    border-top: 1px solid colors.$color-light-blue;
+    color: colors.$color-gray;
+    background: linear-gradient(
+      to right,
+      colors.$color-background 0%,
+      colors.$color-white 100%
+    );
     font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.2px;
@@ -23,7 +30,7 @@
     gap: 16px 0;
     min-width: 260px;
     height: 200px;
-    background-color: #ffffff;
+    background-color: colors.$color-white;
     padding: 16px;
     border-radius: 6px;
     box-sizing: border-box;
@@ -55,9 +62,9 @@
   &__text {
     letter-spacing: 0.2px;
 
-    &--mob-only {
+    &--mobile {
       line-height: 16px;
-      color: #7e7e82;
+      color: colors.$color-gray;
     }
   }
 
@@ -72,12 +79,12 @@
     padding: 4px 12px;
     width: 120px;
     height: 32px;
-    color: #ffffff;
-    background-color: #ff3e79;
+    color: colors.$color-white;
+    background-color: colors.$color-pink;
     transition: all 0.3s;
 
     &:hover {
-      background-color: #da3868;
+      background-color: colors.$color-pink;
     }
   }
 
@@ -123,6 +130,16 @@
   }
 }
 
+.about__paragraph--hidden {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.about__text--expanded {
+  max-height: none !important;
+}
+
 @media (min-width: 340px) {
   .prices__commercial-offer {
     max-width: max-content;
@@ -154,7 +171,7 @@
       border-radius: 0;
 
       &--desktop-only {
-        color: #7e7e82;
+        color: colors.$color-gray;
         line-height: 16;
         height: 48px;
         background-color: transparent;
@@ -177,7 +194,7 @@
         bottom: 0;
         width: calc(100% - 32px);
         margin: 0 auto;
-        border-bottom: 1px solid #eaeaea;
+        border-bottom: 1px solid colors.$color-light-gray;
         content: '';
       }
     }
@@ -199,7 +216,7 @@
     }
 
     &__text {
-      &--mob-only {
+      &--mobile {
         display: none;
       }
     }

@@ -1,3 +1,6 @@
+// navigation.scss
+@use './colors.scss' as colors;
+
 .navigation__menu {
   display: flex;
   flex-direction: row;
@@ -27,7 +30,7 @@
   }
   a {
     &:any-link {
-      color: #7e7e82;
+      color: colors.$color-gray;
     }
   }
 }
@@ -36,8 +39,8 @@
   border: 2px solid transparent;
   transition: all 0.1s ease-in-out;
   &:hover {
-    background-color: #ffffff;
-    border: 2px solid #b8ffec;
+    background-color: colors.$color-white;
+    border: 2px solid colors.$color-light-blue;
     border-radius: 6px;
   }
 }

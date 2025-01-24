@@ -11,7 +11,7 @@
 
 .prices__item {
   display: grid;
-  grid-template-areas: "tg1 tg1" "tg2 tg2" "tg3 a";
+  grid-template-areas: 'tg1 tg1' 'tg2 tg2' 'tg3 a';
   gap: 16px 0;
   min-width: 260px;
   height: 200px;
@@ -43,7 +43,7 @@
 .prices__text {
   letter-spacing: 0.2px;
 }
-.prices__text--mob-only {
+.prices__text--mobile {
   line-height: 16px;
   color: #7e7e82;
 }
@@ -149,7 +149,7 @@
     width: calc(100% - 32px);
     margin: 0 auto;
     border-bottom: 1px solid #eaeaea;
-    content: "";
+    content: '';
   }
   .prices__text-group {
     justify-content: center;
@@ -163,7 +163,7 @@
   .prices__text-group:nth-child(3) {
     width: 90px;
   }
-  .prices__text--mob-only {
+  .prices__text--mobile {
     display: none;
   }
   .prices__additional {

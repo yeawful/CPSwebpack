@@ -66,11 +66,9 @@ if (aboutText && readMoreButton && readMoreButtonText && hiddenParagraph) {
 }
 
 // Управление списком брендов
-const list = document.querySelector('.brands-repair__list')
-const expandButton = document.querySelector('.brands-repair__expand-button')
-const expandButtonText = document.querySelector(
-  '.brands-repair__expand-description'
-)
+const list = document.querySelector('.brands__list')
+const expandButton = document.querySelector('.brands__expand-btn')
+const expandButtonText = document.querySelector('.brands__expand-text')
 
 if (list && expandButton && expandButtonText) {
   expandButton.addEventListener('click', function () {
@@ -78,7 +76,7 @@ if (list && expandButton && expandButtonText) {
       list,
       expandButton,
       expandButtonText,
-      'brands-repair__list--expanded',
+      'brands__list--expanded',
       'Показать все',
       'Скрыть'
     )
@@ -86,13 +84,9 @@ if (list && expandButton && expandButtonText) {
 }
 
 // Управление списком устройств
-const sectionList = document.querySelector('.devices-repair__list')
-const sectionExpandButton = document.querySelector(
-  '.devices-repair__expand-button'
-)
-const sectionExpandButtonText = document.querySelector(
-  '.devices-repair__expand-description'
-)
+const sectionList = document.querySelector('.devices__list')
+const sectionExpandButton = document.querySelector('.devices__expand-btn')
+const sectionExpandButtonText = document.querySelector('.devices__expand-text')
 
 if (sectionList && sectionExpandButton && sectionExpandButtonText) {
   sectionExpandButton.addEventListener('click', function () {
@@ -100,7 +94,7 @@ if (sectionList && sectionExpandButton && sectionExpandButtonText) {
       sectionList,
       sectionExpandButton,
       sectionExpandButtonText,
-      'devices-repair__list--expanded',
+      'devices__list--expanded',
       'Показать все',
       'Скрыть'
     )
@@ -108,9 +102,9 @@ if (sectionList && sectionExpandButton && sectionExpandButtonText) {
 }
 
 // Управление бургер-меню
-const burgerMenuButton = document.querySelector('.burger-menu')
+const burgerMenuButton = document.querySelector('.nav__burger')
 const menu = document.querySelector('.menu')
-const closeMenuButton = document.querySelector('.menu__btn1')
+const closeMenuButton = document.querySelector('.menu__btn--close') // Обновлено
 
 if (burgerMenuButton && menu && closeMenuButton) {
   burgerMenuButton.addEventListener('click', function () {
@@ -128,12 +122,12 @@ if (burgerMenuButton && menu && closeMenuButton) {
 
 // Управление модальными окнами
 const callModal = document.querySelector('.modal.call')
-const callModalButtons = document.querySelectorAll('.menu__btn-call') // NodeList
-const closeCallModalButton = callModal?.querySelector('.modal__icon')
+const callModalButtons = document.querySelectorAll('.btn--call') // Обновлено
+const closeCallModalButton = callModal?.querySelector('.modal__btn')
 
 const feedbackModal = document.querySelector('.modal.feedback')
-const feedbackModalButtons = document.querySelectorAll('.menu__btn-chat') // NodeList
-const closeFeedbackModalButton = feedbackModal?.querySelector('.modal__icon')
+const feedbackModalButtons = document.querySelectorAll('.btn--chat') // Обновлено
+const closeFeedbackModalButton = feedbackModal?.querySelector('.modal__btn')
 
 setupModal(callModal, callModalButtons, closeCallModalButton)
 setupModal(feedbackModal, feedbackModalButtons, closeFeedbackModalButton)
