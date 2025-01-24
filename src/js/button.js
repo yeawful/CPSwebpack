@@ -1,3 +1,51 @@
+// Функция для переключения состояния секции (раскрытие/скрытие)
+function toggleSection(
+  section,
+  button,
+  buttonText,
+  expandedClass,
+  showText,
+  hideText
+) {
+  section.classList.toggle(expandedClass)
+  buttonText.textContent = section.classList.contains(expandedClass)
+    ? hideText
+    : showText
+}
+
+// Функция для закрытия элемента при клике вне его области
+function closeOnClickOutside(element, buttons, closeFunction) {
+  document.addEventListener('click', function (event) {
+    const buttonsArray = Array.from(buttons) // Преобразуем NodeList в массив
+    if (
+      !element.contains(event.target) &&
+      !buttonsArray.some((button) => button.contains(event.target))
+    ) {
+      closeFunction()
+    }
+  })
+}
+
+// Функция для настройки модального окна
+function setupModal(modal, buttons, closeButton) {
+  if (modal && buttons.length > 0 && closeButton) {
+    buttons.forEach((button) => {
+      button.addEventListener('click', function () {
+        modal.classList.add('modal--shown')
+      })
+    })
+
+    closeButton.addEventListener('click', function () {
+      modal.classList.remove('modal--shown')
+    })
+
+    closeOnClickOutside(modal, buttons, function () {
+      modal.classList.remove('modal--shown')
+    })
+  }
+}
+
+// Управление текстом "Читать далее"
 const aboutText = document.querySelector('.about__text')
 const readMoreButton = document.querySelector('.about__read-more')
 const readMoreButtonText = document.querySelector(
@@ -9,40 +57,35 @@ if (aboutText && readMoreButton && readMoreButtonText && hiddenParagraph) {
   readMoreButton.addEventListener('click', function () {
     aboutText.classList.toggle('about__text--expanded')
     hiddenParagraph.classList.toggle('about__paragraph--hidden')
-
-    if (aboutText.classList.contains('about__text--expanded')) {
-      readMoreButtonText.textContent = 'Скрыть'
-    } else {
-      readMoreButtonText.textContent = 'Читать далее'
-    }
+    readMoreButtonText.textContent = aboutText.classList.contains(
+      'about__text--expanded'
+    )
+      ? 'Скрыть'
+      : 'Читать далее'
   })
 }
 
-// Поиск списка, кнопки раскрытия/скрытия и текста кнопки
+// Управление списком брендов
 const list = document.querySelector('.brands-repair__list')
 const expandButton = document.querySelector('.brands-repair__expand-button')
 const expandButtonText = document.querySelector(
   '.brands-repair__expand-description'
 )
 
-// Проверка, что все элементы существуют
 if (list && expandButton && expandButtonText) {
-  // Добавление обработчика клика на кнопку
   expandButton.addEventListener('click', function () {
-    // Переключение класса для раскрытия/скрытия списка
-    list.classList.toggle('brands-repair__list--expanded')
-    // Переключение класса для поворота кнопки
-    expandButton.classList.toggle('brands-repair__expand-button--rotated')
-    // Изменение текста кнопки в зависимости от состояния списка
-    expandButtonText.textContent = list.classList.contains(
-      'brands-repair__list--expanded'
+    toggleSection(
+      list,
+      expandButton,
+      expandButtonText,
+      'brands-repair__list--expanded',
+      'Показать все',
+      'Скрыть'
     )
-      ? 'Скрыть'
-      : 'Показать все'
   })
 }
 
-// Поиск списка, кнопки раскрытия/скрытия и текста кнопки для section
+// Управление списком устройств
 const sectionList = document.querySelector('.devices-repair__list')
 const sectionExpandButton = document.querySelector(
   '.devices-repair__expand-button'
@@ -51,111 +94,46 @@ const sectionExpandButtonText = document.querySelector(
   '.devices-repair__expand-description'
 )
 
-// Проверка, что все элементы существуют
 if (sectionList && sectionExpandButton && sectionExpandButtonText) {
-  // Добавление обработчика клика на кнопку
   sectionExpandButton.addEventListener('click', function () {
-    // Переключение класса для раскрытия/скрытия списка
-    sectionList.classList.toggle('devices-repair__list--expanded')
-    // Переключение класса для поворота кнопки
-    sectionExpandButton.classList.toggle(
-      'devices-repair__expand-button--rotated'
+    toggleSection(
+      sectionList,
+      sectionExpandButton,
+      sectionExpandButtonText,
+      'devices-repair__list--expanded',
+      'Показать все',
+      'Скрыть'
     )
-    // Изменение текста кнопки в зависимости от состояния списка
-    sectionExpandButtonText.textContent = sectionList.classList.contains(
-      'devices-repair__list--expanded'
-    )
-      ? 'Скрыть'
-      : 'Показать все'
   })
 }
 
-// Поиск элементов
+// Управление бургер-меню
 const burgerMenuButton = document.querySelector('.burger-menu')
 const menu = document.querySelector('.menu')
 const closeMenuButton = document.querySelector('.menu__btn1')
 
-// Проверка, что все элементы существуют
 if (burgerMenuButton && menu && closeMenuButton) {
-  // Добавление обработчика клика на кнопку "бургер"
   burgerMenuButton.addEventListener('click', function () {
-    menu.classList.add('menu--visible') // Показываем меню
+    menu.classList.add('menu--visible')
   })
 
-  // Добавление обработчика клика на кнопку закрытия меню
   closeMenuButton.addEventListener('click', function () {
-    menu.classList.remove('menu--visible') // Скрываем меню
+    menu.classList.remove('menu--visible')
   })
 
-  // Закрытие меню при клике вне его области
-  document.addEventListener('click', function (event) {
-    if (
-      !menu.contains(event.target) &&
-      !burgerMenuButton.contains(event.target)
-    ) {
-      menu.classList.remove('menu--visible')
-    }
+  closeOnClickOutside(menu, [burgerMenuButton], function () {
+    menu.classList.remove('menu--visible')
   })
 }
 
-// Открытие и закрытие модального окна "call"
+// Управление модальными окнами
 const callModal = document.querySelector('.modal.call')
-const callModalButtons = document.querySelectorAll('.menu__btn-call') // Все кнопки "call"
-const closeCallModalButton = callModal.querySelector('.modal__icon')
+const callModalButtons = document.querySelectorAll('.menu__btn-call') // NodeList
+const closeCallModalButton = callModal?.querySelector('.modal__icon')
 
-if (callModal && callModalButtons.length > 0 && closeCallModalButton) {
-  callModalButtons.forEach((button) => {
-    button.addEventListener('click', function () {
-      callModal.classList.add('modal--shown')
-    })
-  })
-
-  closeCallModalButton.addEventListener('click', function () {
-    callModal.classList.remove('modal--shown')
-  })
-
-  // Закрытие модального окна при клике вне его области
-  document.addEventListener('click', function (event) {
-    if (
-      !callModal.contains(event.target) &&
-      !Array.from(callModalButtons).some((button) =>
-        button.contains(event.target)
-      )
-    ) {
-      callModal.classList.remove('modal--shown')
-    }
-  })
-}
-
-// Открытие и закрытие модального окна "feedback"
 const feedbackModal = document.querySelector('.modal.feedback')
-const feedbackModalButtons = document.querySelectorAll('.menu__btn-chat') // Все кнопки "chat"
-const closeFeedbackModalButton = feedbackModal.querySelector('.modal__icon')
+const feedbackModalButtons = document.querySelectorAll('.menu__btn-chat') // NodeList
+const closeFeedbackModalButton = feedbackModal?.querySelector('.modal__icon')
 
-if (
-  feedbackModal &&
-  feedbackModalButtons.length > 0 &&
-  closeFeedbackModalButton
-) {
-  feedbackModalButtons.forEach((button) => {
-    button.addEventListener('click', function () {
-      feedbackModal.classList.add('modal--shown')
-    })
-  })
-
-  closeFeedbackModalButton.addEventListener('click', function () {
-    feedbackModal.classList.remove('modal--shown')
-  })
-
-  // Закрытие модального окна при клике вне его области
-  document.addEventListener('click', function (event) {
-    if (
-      !feedbackModal.contains(event.target) &&
-      !Array.from(feedbackModalButtons).some((button) =>
-        button.contains(event.target)
-      )
-    ) {
-      feedbackModal.classList.remove('modal--shown')
-    }
-  })
-}
+setupModal(callModal, callModalButtons, closeCallModalButton)
+setupModal(feedbackModal, feedbackModalButtons, closeFeedbackModalButton)
