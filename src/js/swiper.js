@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 // Создание медиа-запроса для проверки ширины экрана (максимум 767px)
 const mediaQuery = window.matchMedia('(max-width: 767px)')
 
@@ -24,21 +25,21 @@ function initSwiper(blockClass) {
       swiperSlides.forEach((slide) => slide.classList.add('swiper-slide'))
 
       // Инициализация Swiper
+      // eslint-disable-next-line no-undef
       swiperInstances[blockClass] = new Swiper(`.${blockClass}__content`, {
         // Настройка пагинации, если она существует
         pagination: swiperPagination
           ? {
               el: swiperPagination, // Указываем элемент для пагинации
               type: 'bullets', // Тип пагинации — точки
-              clickable: true, // Делаем точки кликабельными
+              clickable: true // Делаем точки кликабельными
 
-              // Функция для отображения буллетов (ограничение до 9)
-              renderBullet: function (index, className) {
+              /* renderBullet: function (index, className) {
                 if (index < 9) {
                   return `<span class="${className}"></span>`
                 }
                 return ''
-              }
+              } */
             }
           : false,
         simulateTouch: true, // Включение симуляции касания

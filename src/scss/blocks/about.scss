@@ -1,0 +1,154 @@
+.about {
+  &__title {
+    position: relative;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    z-index: -1;
+    padding-left: 16px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 40px;
+      top: -10px;
+      left: 0px;
+      border-radius: 3px;
+      background-color: rgb(65, 246, 215);
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 32px 32px 16px;
+    gap: 16px;
+  }
+
+  &__image img {
+    min-width: 531px;
+    min-height: 308px;
+  }
+
+  &__text {
+    padding-bottom: 14px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.4s ease-in;
+  }
+
+  &__paragraph {
+    line-height: 22px;
+    max-width: 490px;
+    max-height: 400px;
+    margin-top: 16px;
+    transition: max-height 0.3s ease-out;
+  }
+
+  &__read-more {
+    display: flex;
+    padding: 0 0 0 6px;
+    gap: 16px;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 12px;
+  }
+}
+
+.about__paragraph--hidden {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.about__text--expanded {
+  max-height: none !important; // Убираем ограничение по высоте
+}
+
+@media screen and (width >= 1120px) {
+  .about {
+    &__title {
+      margin-top: 24px;
+      padding-left: 32px;
+    }
+
+    &__read-more {
+      margin-top: 0px;
+    }
+    &__row {
+      padding-left: 32px;
+    }
+  }
+}
+
+@media screen and (max-width: 1119px) {
+  .about {
+    &__title {
+      margin-top: 42px;
+      padding-left: 24px;
+    }
+
+    &__row {
+      margin-top: 32px;
+      padding-left: 24px;
+    }
+
+    &__text {
+      max-height: 190px;
+    }
+
+    &__paragraph {
+      max-height: 200px;
+    }
+
+    &__image img {
+      min-width: 360px;
+      min-height: 208px;
+    }
+
+    &__read-more {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about {
+    &__image img {
+      min-width: 320px;
+      min-height: 176px;
+    }
+
+    &__row {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    &__text {
+      max-height: 160px;
+    }
+
+    &__paragraph {
+      max-height: 160px;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .about {
+    &__text {
+      max-height: 160px;
+    }
+
+    &__paragraph {
+      max-height: 190px;
+    }
+  }
+  .about__read-more {
+    margin-top: 16px;
+  }
+}

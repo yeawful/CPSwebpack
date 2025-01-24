@@ -1,0 +1,160 @@
+.nav {
+  position: relative;
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-top: 19px;
+    padding-left: 16px;
+  }
+
+  &__right {
+    display: flex;
+    align-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 19px;
+    padding-right: 16px;
+  }
+}
+
+.burger-menu {
+  display: none;
+  align-items: center;
+  min-width: 40px;
+  height: 40px;
+  background-color: rgba(255, 62, 121, 1);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.nav__logo {
+  display: none;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 32px;
+    border-radius: 2px;
+    background-color: #eaeaea;
+    margin-right: 20px;
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  padding: 16px 30px 0 0;
+  font-weight: 500;
+
+  &__item {
+    height: 40px;
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  &__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  > :nth-child(-n + 3) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1119px) {
+  .nav-links {
+    > :nth-child(-n + 3) {
+      display: block;
+    }
+
+    > :nth-last-child(2) {
+      position: relative;
+      margin-left: 20px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        margin-top: 4px;
+        top: 0;
+        left: -20px;
+        width: 2px;
+        height: 32px;
+        border-radius: 2px;
+        margin-right: 20px;
+        background-color: #eaeaea;
+      }
+    }
+
+    gap: 20px;
+    padding: 0;
+
+    &__item {
+      display: inline-block;
+
+      span {
+        display: none;
+      }
+    }
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 18px var(--container-padding);
+
+    &__right {
+      position: inherit;
+      display: block;
+    }
+  }
+
+  .burger-menu {
+    display: flex;
+  }
+
+  .nav__logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      min-width: 97px;
+      min-height: 51px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .nav-links {
+    > :nth-child(-n + 3) {
+      display: none;
+    }
+
+    gap: 16px;
+  }
+
+  .nav__logo::before {
+    display: none;
+  }
+
+  .nav__left {
+    gap: 16px;
+  }
+}
