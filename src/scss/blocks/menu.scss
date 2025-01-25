@@ -41,6 +41,20 @@
     }
   }
 
+  @media (min-width: 320px) {
+    .menu__header {
+      margin-top: -8px;
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .menu__header {
+      margin-top: -8px;
+    }
+  }
+
   @media (min-width: 1120px) {
     left: 0;
 
@@ -160,6 +174,14 @@
     &__btn--close {
       display: none;
     }
+  }
+
+  .menu__btn {
+    margin-top: 0px;
+  }
+
+  .menu__header img {
+    margin-top: 18px;
   }
 }
 

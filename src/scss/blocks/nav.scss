@@ -153,7 +153,11 @@
 
 @media screen and (width >= 1120px) {
   .nav-links__item {
-    padding-top: 24px;
+    padding: 12px 0 12px 0;
+  }
+
+  .nav__right {
+    padding-top: 42px;
   }
 }
 
