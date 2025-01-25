@@ -17,7 +17,19 @@ function initSwiper(blockClass) {
 
     swiperContainer.classList.add('swiper')
     swiperWrapper.classList.add('swiper-wrapper')
-    swiperSlides.forEach((slide) => slide.classList.add('swiper-slide'))
+    swiperSlides.forEach((slide) => {
+      slide.classList.add('swiper-slide')
+      slide.setAttribute('tabindex', '0') // Добавляем tabindex к каждому слайду
+    })
+
+    // Добавляем ARIA-атрибуты
+    swiperContainer.setAttribute('role', 'region')
+    swiperContainer.setAttribute('aria-label', 'Слайдер')
+    swiperWrapper.setAttribute('role', 'list')
+    swiperSlides.forEach((slide, index) => {
+      slide.setAttribute('role', 'listitem')
+      slide.setAttribute('aria-label', `Слайд ${index + 1}`)
+    })
 
     // eslint-disable-next-line no-undef
     swiperInstances[blockClass] = new Swiper(`.${blockClass}__content`, {
@@ -40,11 +52,25 @@ function initSwiper(blockClass) {
         560: { slidesPerView: 1.8 },
         640: { slidesPerView: 2.0 },
         720: { slidesPerView: 2.2 }
+      },
+      on: {
+        slideChange: function () {
+          const activeSlide = this.slides[this.activeIndex]
+          if (activeSlide) {
+            activeSlide.focus() // Перемещаем фокус на активный слайд
+          }
+        }
       }
     })
 
     if (swiperPagination) {
       swiperPagination.style.display = mediaQuery.matches ? 'block' : 'none'
+      const paginationBullets = swiperPagination.querySelectorAll(
+        '.swiper-pagination-bullet'
+      )
+      paginationBullets.forEach((bullet) => {
+        bullet.setAttribute('tabindex', '0') // Делаем элементы пагинации фокусируемыми
+      })
     }
   } else if (!mediaQuery.matches && swiperInstances[blockClass]) {
     if (swiperInstances[blockClass] && swiperInstances[blockClass].destroy) {

@@ -4,6 +4,7 @@
 .menu {
   position: fixed;
   top: 0;
+  z-index: 20;
   left: -320px;
   width: 320px;
   height: 100vh;
@@ -14,11 +15,12 @@
   background-color: colors.$color-white;
   font-size: 16px;
   overflow-y: auto;
-  transition: left 0.3s ease;
-  z-index: 10;
+  transition:
+    left 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
 
-  &--visible {
-    left: 0;
+  &--shown {
+    left: 0px;
   }
 
   &__btn {
@@ -140,6 +142,14 @@
     &:hover {
       color: colors.$color-gray;
     }
+  }
+}
+
+@media (max-width: 1119px) {
+  .menu {
+    box-shadow: 16px 0px 52px 0px #0e185033;
+    height: 100vh;
+    backdrop-filter: blur(10px);
   }
 }
 

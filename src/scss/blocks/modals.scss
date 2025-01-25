@@ -3,7 +3,7 @@
 .modal {
   position: fixed;
   top: 0;
-  z-index: 30;
+  z-index: 20;
   right: -120%;
   height: 100vh;
   display: flex;
@@ -14,12 +14,7 @@
 }
 
 .modal--shown {
-  position: fixed;
-  z-index: 40; // Увеличено для корректного отображения
-  top: 0;
   right: 0;
-  width: 100%;
-  background-color: rgba($color: colors.$color-background, $alpha: 0.8);
 }
 
 .modal__content {
@@ -93,6 +88,10 @@
   }
 }
 
+.modal__btn {
+  background-color: transparent;
+}
+
 .modal__submit-text {
   font-size: 12px;
   line-height: 24px;
@@ -116,5 +115,33 @@
 
   .modal__title {
     margin-top: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal__content {
+    padding: 6px 16px;
+  }
+
+  .modal__btn {
+    top: 30px;
+  }
+}
+
+@media (min-width: 1120px) {
+  .modal__content {
+    padding: 6px 16px;
+  }
+
+  .modal__btn {
+    top: 30px;
+  }
+}
+
+@media (max-width: 1119px) {
+  .modal {
+    box-shadow: -16px 0px 52px 0px #0e185033;
+    height: 100vh;
+    backdrop-filter: blur(10px);
   }
 }

@@ -1,15 +1,17 @@
-// nav.scss
 @use './colors.scss' as colors;
 
 .nav {
   position: relative;
+  min-height: 88px;
+  max-height: 88px;
 
   &__left {
     display: flex;
     align-items: center;
     gap: 24px;
-    padding-top: 19px;
+    padding-top: 24px;
     padding-left: 16px;
+    padding-bottom: 24px;
   }
 
   &__right {
@@ -18,8 +20,9 @@
     position: absolute;
     right: 0;
     top: 0;
-    padding-top: 19px;
+    padding-top: 24px;
     padding-right: 16px;
+    padding-bottom: 24px;
   }
 }
 
@@ -57,7 +60,7 @@
 .nav-links {
   display: flex;
   gap: 32px;
-  padding: 16px 30px 0 0;
+  /* padding: 26px 30px 0 0; */
   font-weight: 500;
 
   &__item {
@@ -96,7 +99,7 @@
         position: absolute;
         margin-top: 4px;
         top: 0;
-        left: -20px;
+        left: -18px;
         width: 2px;
         height: 32px;
         border-radius: 2px;
@@ -126,6 +129,11 @@
     &__right {
       position: inherit;
       display: block;
+      padding-right: 24px;
+    }
+
+    &__left {
+      padding-left: 24px;
     }
   }
 
@@ -144,6 +152,12 @@
   }
 }
 
+@media screen and (width >= 1120px) {
+  .nav-links__item {
+    padding-top: 24px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .nav-links {
     > :nth-child(-n + 3) {
@@ -152,12 +166,27 @@
 
     gap: 16px;
   }
-
   .nav__logo::before {
     display: none;
   }
 
   .nav__left {
+    gap: 16px;
+  }
+
+  .nav {
+    &__right {
+      padding-right: 16px;
+    }
+
+    &__left {
+      padding-left: 16px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1120px) {
+  .nav-links {
     gap: 16px;
   }
 }

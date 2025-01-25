@@ -25,3 +25,25 @@
     max-width: 1120px;
   }
 }
+
+/* Стиль для блюра фона */
+.blur-background {
+  background-color: rgba($color: colors.$color-background, $alpha: 0.8);
+}
+
+/* Стиль для затемнения фона */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: colors.$color-background, $alpha: 0.8);
+  z-index: 15; /* Убедитесь, что overlay находится над фоном, но под меню/модалками */
+  display: none; /* По умолчанию скрыт */
+}
+
+/* Показываем overlay, когда меню или модальное окно открыто */
+.overlay--visible {
+  display: block;
+}
