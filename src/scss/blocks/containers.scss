@@ -1,4 +1,3 @@
-// containers.scss
 @use './colors.scss' as colors;
 
 .right-container {
@@ -6,10 +5,11 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-}
-.right-container--overlaid {
-  max-height: 100vh;
-  overflow: hidden;
+
+  &--overlaid {
+    max-height: 100vh;
+    overflow: hidden;
+  }
 }
 
 @media (min-width: 1120px) {
@@ -19,6 +19,7 @@
     max-width: 1440px;
     margin: 0 auto;
   }
+
   .right-container {
     position: relative;
     width: calc(100vw - 320px);
@@ -28,7 +29,7 @@
 
 /* Стиль для блюра фона */
 .blur-background {
-  background-color: rgba($color: colors.$color-background, $alpha: 0.8);
+  background-color: rgba(colors.$color-background, 0.8);
 }
 
 /* Стиль для затемнения фона */
@@ -38,12 +39,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba($color: colors.$color-background, $alpha: 0.8);
-  z-index: 15; /* Убедитесь, что overlay находится над фоном, но под меню/модалками */
-  display: none; /* По умолчанию скрыт */
-}
+  background-color: rgba(colors.$color-background, 0.8);
+  z-index: 15;
+  display: none;
 
-/* Показываем overlay, когда меню или модальное окно открыто */
-.overlay--visible {
-  display: block;
+  &--visible {
+    display: block;
+  }
 }

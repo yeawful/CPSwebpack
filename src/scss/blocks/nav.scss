@@ -5,24 +5,24 @@
   min-height: 88px;
   max-height: 88px;
 
-  &__left {
+  &__left,
+  &__right {
     display: flex;
     align-items: center;
-    gap: 24px;
     padding-top: 24px;
-    padding-left: 16px;
     padding-bottom: 24px;
   }
 
+  &__left {
+    gap: 24px;
+    padding-left: 16px;
+  }
+
   &__right {
-    display: flex;
-    align-content: center;
     position: absolute;
     right: 0;
     top: 0;
-    padding-top: 24px;
     padding-right: 16px;
-    padding-bottom: 24px;
   }
 }
 
@@ -60,7 +60,6 @@
 .nav-links {
   display: flex;
   gap: 32px;
-  /* padding: 26px 30px 0 0; */
   font-weight: 500;
 
   &__item {
@@ -170,17 +169,14 @@
     display: none;
   }
 
-  .nav__left {
-    gap: 16px;
-  }
-
   .nav {
-    &__right {
-      padding-right: 16px;
+    &__left {
+      gap: 16px;
+      padding-left: 16px;
     }
 
-    &__left {
-      padding-left: 16px;
+    &__right {
+      padding-right: 16px;
     }
   }
 }

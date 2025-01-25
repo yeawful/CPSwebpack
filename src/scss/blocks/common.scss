@@ -1,11 +1,10 @@
-// common.scss
 @use './colors.scss' as colors;
 
 html {
-  font-size: 14px;
-  line-height: 18px;
+  font:
+    14px/18px 'TT Lakes',
+    sans-serif;
   color: colors.$color-black;
-  font-family: 'TT Lakes', sans-serif;
   box-sizing: border-box;
 
   &,
@@ -18,13 +17,13 @@ html {
 }
 
 body {
-  background-color: colors.$color-background;
+  background: colors.$color-background;
 }
 
 a,
 button {
   text-decoration: none;
-  background-color: inherit;
+  background: inherit;
   color: inherit;
   border: none;
 
@@ -37,10 +36,8 @@ ul {
   list-style: none;
 }
 
-li {
-  > * {
-    display: block;
-  }
+li > * {
+  display: block;
 }
 
 .swiper-pagination {

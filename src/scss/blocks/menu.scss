@@ -1,4 +1,3 @@
-// menu.scss
 @use './colors.scss' as colors;
 
 .menu {
@@ -20,7 +19,7 @@
     opacity 0.2s ease-in-out;
 
   &--shown {
-    left: 0px;
+    left: 0;
   }
 
   &__btn {
@@ -34,7 +33,6 @@
     &--close {
       display: block;
     }
-
     &--search,
     &--call,
     &--chat,
@@ -55,15 +53,13 @@
     display: flex;
     justify-content: space-between;
 
-    &-left {
-      display: flex;
-      align-items: center;
-      gap: 17px;
-    }
-
+    &-left,
     &-right {
       display: flex;
       align-items: center;
+    }
+    &-left {
+      gap: 17px;
     }
   }
 

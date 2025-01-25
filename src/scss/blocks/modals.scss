@@ -11,135 +11,127 @@
   transition:
     right 0.2s ease-in-out,
     opacity 0.2s ease-in-out;
-}
 
-.modal--shown {
-  right: 0;
-}
-
-.modal__content {
-  position: relative;
-  padding: 24px 16px;
-  width: 100vw;
-  height: 100vh;
-  background-color: colors.$color-white;
-  overflow-y: auto;
-}
-
-.modal__title {
-  margin: 40px 0 24px;
-  font-size: 24px;
-  line-height: 40px;
-  letter-spacing: -0.6px;
-
-  &::before {
-    position: absolute;
-    left: 0;
-    display: block;
-    height: 40px;
-    border-right: 4px solid colors.$color-blue;
-    border-radius: 0 4px 4px 0;
-    content: '';
+  &--shown {
+    right: 0;
   }
-}
 
-.modal__form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+  &__content {
+    position: relative;
+    padding: 24px 16px;
+    width: 100vw;
+    height: 100vh;
+    background-color: colors.$color-white;
+    overflow-y: auto;
 
-.modal__input {
-  width: 100%;
-  min-height: 48px;
-  border-radius: 8px;
-  border: 1px solid colors.$color-light-gray;
-  padding: 12px 16px;
-  font-family: 'TT Lakes', sans-serif; // Добавлен резервный шрифт
-  font-size: 16px;
-  line-height: 20px;
-  letter-spacing: -0.2px;
-}
+    @media (min-width: 520px) {
+      width: 440px;
+      overflow-y: visible;
+    }
 
-.modal__agreement {
-  line-height: 16px;
-}
+    @media (min-width: 768px) {
+      padding: 6px 16px;
+    }
 
-.modal__link {
-  color: colors.$color-pink;
-}
+    @media (min-width: 1120px) {
+      padding: 10px 16px;
+    }
+  }
 
-.modal__submit-button {
-  justify-self: flex-end;
-  align-self: flex-end;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 16px;
-  padding: 4px 12px;
-  width: 120px;
-  height: 32px;
-  color: colors.$color-white;
-  background-color: colors.$color-pink;
-  transition: background-color 0.3s;
+  &__title {
+    margin: 40px 0 24px;
+    font-size: 24px;
+    line-height: 40px;
+    letter-spacing: -0.6px;
 
-  &:hover {
+    &::before {
+      position: absolute;
+      left: 0;
+      display: block;
+      height: 40px;
+      border-right: 4px solid colors.$color-blue;
+      border-radius: 0 4px 4px 0;
+      content: '';
+    }
+
+    @media (min-width: 520px) {
+      margin-top: 24px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__input {
+    width: 100%;
+    min-height: 48px;
+    border-radius: 8px;
+    border: 1px solid colors.$color-light-gray;
+    padding: 12px 16px;
+    font-family: 'TT Lakes', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.2px;
+  }
+
+  &__agreement {
+    line-height: 16px;
+  }
+
+  &__link {
+    color: colors.$color-pink;
+  }
+
+  &__submit-button {
+    justify-self: flex-end;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px;
+    padding: 4px 12px;
+    width: 120px;
+    height: 32px;
+    color: colors.$color-white;
     background-color: colors.$color-pink;
-  }
-}
+    transition: background-color 0.3s;
 
-.modal__btn {
-  background-color: transparent;
-}
-
-.modal__submit-text {
-  font-size: 12px;
-  line-height: 24px;
-  letter-spacing: -0.15px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-@media (min-width: 520px) {
-  .modal__content {
-    width: 440px;
-    overflow-y: visible;
+    &:hover {
+      background-color: colors.$color-pink;
+    }
   }
 
-  .modal__btn {
-    position: absolute;
-    left: -60px;
-    top: 48px;
-    z-index: 30;
+  &__btn {
+    background-color: transparent;
+
+    @media (min-width: 520px) {
+      position: absolute;
+      left: -60px;
+      top: 48px;
+      z-index: 30;
+    }
+
+    @media (min-width: 768px) {
+      top: 30px;
+    }
+
+    @media (min-width: 1120px) {
+      top: 30px;
+    }
   }
 
-  .modal__title {
-    margin-top: 24px;
-  }
-}
-
-@media (min-width: 768px) {
-  .modal__content {
-    padding: 6px 16px;
+  &__submit-text {
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: -0.15px;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 
-  .modal__btn {
-    top: 30px;
-  }
-}
-
-@media (min-width: 1120px) {
-  .modal__content {
-    padding: 10px 16px;
-  }
-
-  .modal__btn {
-    top: 30px;
-  }
-}
-
-@media (max-width: 1119px) {
-  .modal {
+  @media (max-width: 1119px) {
     box-shadow: -16px 0px 52px 0px #0e185033;
     height: 100vh;
     backdrop-filter: blur(10px);
