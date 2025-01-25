@@ -45,7 +45,7 @@
   &__paragraph {
     line-height: 22px;
     max-width: 490px;
-    max-height: 130px;
+    max-height: 400px;
     margin-top: 0px;
     margin-bottom: 24px;
     transition: max-height 0.3s ease-out;
@@ -91,6 +91,13 @@
       padding-left: 32px;
       padding-bottom: 16px;
     }
+    &__text {
+      max-height: 270px;
+    }
+
+    &__paragraph {
+      max-height: 270px;
+    }
   }
 }
 
@@ -107,11 +114,11 @@
     }
 
     &__text {
-      max-height: 190px;
+      max-height: 180px;
     }
 
     &__paragraph {
-      max-height: 200px;
+      max-height: 180px;
     }
 
     &__image img {
@@ -139,11 +146,11 @@
     }
 
     &__text {
-      max-height: 160px;
+      max-height: 140px;
     }
 
     &__paragraph {
-      max-height: 160px;
+      max-height: 140px;
     }
   }
 }
@@ -151,11 +158,11 @@
 @media screen and (max-width: 320px) {
   .about {
     &__text {
-      max-height: 160px;
+      max-height: 130px;
     }
 
     &__paragraph {
-      max-height: 190px;
+      max-height: 130px;
     }
   }
   .about__read-more {
