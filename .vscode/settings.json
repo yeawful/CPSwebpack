@@ -1,7 +1,7 @@
 {
   "git.autofetch": true,
   "cSpell.language": "en, ru",
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "vscode-icons",
   "[html][css][scss][javascript]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
