@@ -14,5 +14,8 @@
   "editor.formatOnSave": true,
   "terminal.integrated.defaultProfile.osx": "bash",
   "terminal.integrated.defaultProfile.linux": "bash",
-  "terminal.integrated.defaultProfile.windows":"bash"
+  "terminal.integrated.defaultProfile.windows": "bash",
+  "cSpell.words": [
+    "Apesong"
+  ]
 }
